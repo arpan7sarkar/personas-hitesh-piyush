@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Persona Chatbot</title>
+    <script>
+      tailwind = { config: { darkMode: 'class' } };
+      // Note: This must come BEFORE the CDN runtime
+      tailwind.config = { darkMode: 'class' };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; }
+      .bubble { border-radius: 16px; }
+      .shadow-soft { box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+      /* Subtle gradients inspired by the screenshot */
+      .app-bg { background-image: linear-gradient(180deg, rgba(99,102,241,0.05), transparent 28%), linear-gradient(0deg, rgba(15,23,42,0.02), transparent 45%); }
+      .dark .app-bg { background-image: radial-gradient(1000px 600px at 10% -10%, rgba(99,102,241,0.15), transparent 40%), radial-gradient(800px 500px at 100% 0%, rgba(16,185,129,0.12), transparent 45%); }
+    </style>
+  </head>
+  <body class="h-full bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <div class="min-h-full grid grid-rows-[auto,1fr] app-bg">
+      <header class="sticky top-0 z-10 border-b border-slate-200/60 dark:border-slate-700/60 backdrop-blur bg-white/70 dark:bg-slate-900/60">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white grid place-items-center font-bold">AI</div>
+          <div class="flex-1">
+            <h1 class="text-lg font-semibold">Persona Chat</h1>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Two personas. One chat window.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div id="personaSwitch" class="inline-flex rounded-lg border border-slate-300 dark:border-slate-700 overflow-hidden">
+              <button type="button" data-id="hitesh" class="px-3 py-2 text-sm font-medium bg-indigo-600 text-white">Hitesh</button>
+              <button type="button" data-id="piyush" class="px-3 py-2 text-sm font-medium bg-transparent text-slate-800 dark:text-slate-200">Piyush</button>
+            </div>
+            <button id="themeToggle" title="Toggle theme" class="h-8 w-8 ml-2 rounded-lg bg-transparent border border-slate-300 dark:border-slate-700 grid place-items-center text-sm">🌓</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-5xl mx-auto px-4 w-full grid grid-rows-[1fr,auto] gap-4 py-4">
+        <div id="messages" class="overflow-y-auto space-y-3 p-2">
+          <!-- Messages injected here -->
+        </div>
+        <form id="chatForm" class="flex gap-2 items-end border-t border-slate-200/60 dark:border-slate-700/60 pt-3">
+          <textarea id="messageInput" rows="2" placeholder="Type a new message here" class="flex-1 resize-none p-3 rounded-xl bg-white/80 backdrop-blur dark:bg-slate-800/70 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/60" required></textarea>
+          <button type="submit" class="h-12 px-5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-soft">Send</button>
+        </form>
+      </main>
+    </div>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+  </html>
+
+
