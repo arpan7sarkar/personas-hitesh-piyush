@@ -1,5 +1,4 @@
-# Persona Chatbot — Vercel-ready
-
+# Persona Chatbot of  hitesh and piyush sir
 This repository contains a small persona-based chat UI and serverless API routes suitable for Vercel.
 
 Quick deploy steps:
